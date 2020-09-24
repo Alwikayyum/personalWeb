@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basis Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html"><img src="AlwikayyumWeb.png" width="100px" height="auto"></a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Data Diri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Riwayat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Keterampilan</a>
+        </li>
+       
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Article
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="tboTugasSatu.html">Teori Bahasa dan Otomata</a>
+        <a class="dropdown-item" href="tboTugasDua.html">Notasi Big O</a>
+        <a class="dropdown-item" href="bdTugasEmpat.html">Prinsip Kerja Pemrosesan Query</a>
+      </div>
+      </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <br><br>
+  <div class="jumbotron">
+    <h1>Basis Data</h1>
+    <p>Prinsip Kerja Pemrosesan Query Dalam Basis Data</p>
+  </div>
+
+  <div class="container">
+        <p class="text-justify">
+      Ketika diterjemahkan dari bahasa Inggris ke bahasa Indonesia, kata query mengacu pada permintaan akan 
+      informasi. Lalu, apa itu query di bahasa pemrograman komputer? Pada dasarnya, pengertian query dalam 
+      bahasa Inggris sehari-hari dan bahasa pemrograman komputer memiliki arti yang sama – kecuali di komputer, 
+      query meliputi informasi yang diterima atau diambil dari database. Bahasa pemrograman ini berguna untuk 
+      memanipulasi data – menambah, menghapus, dan mengubah data.
+    </p>
+    <br>
+    <p class="test-justify">
+      Pada saat membuat query, Anda tidak bisa mengetikkan ‘request’ secara asal-asalan. Query ditulis berdasarkan 
+      pada sekumpulan pre-defined code sehingga database dapat memahami instruksi yang diminta. Kami menyebut kode 
+      ini sebagai bahasa query.
+    </p>
+    <br>
+    <p class="test-justify">
+      Standar manajemen database adalah Structure Query Language (SQL). Satu hal yang harus Anda ingat, SQL 
+      berbeda dari MySQL: SQL merupakan bahasa query, sedangkan MySQL adalah software yang menggunakan bahasa 
+      tersebut. SQL memang dikenal sebagai software database yang paling banyak digunakan. Namun, SQL tidak 
+      menjadi satu-satunya pilihan software. AQL, Datalog, dan DMX adalah contoh software database yang bisa 
+      Anda gunakan.
+    </p>
+    <h4 class="bg-primary text-white text-center" >Mengukur Biaya Sebuah Query</h4>
+    <p class="text-justify">
+      Ada beberapa kemungkinan rencana evaluasi untuk queri, dan itu penting untuk bisa untuk membandingkan 
+      alternatif dalam hal biaya (perkiraan) mereka, dan memilih rencana terbaik. Untuk melakukannya, kita harus 
+      memperkirakan biaya operasi individu dan menggabungkannya untuk mendapatkannya biaya rencana evaluasi kueri. 
+      Jadi, saat kita mempelajari algoritma evaluasi untuk masing-masing operasi, kita juga menguraikan bagaimana 
+      memperkirakan biaya operasi. Biaya evaluasi query dapat diukur dari banyaknya sumber daya (resource) sistem 
+      yang digunakan.
+    </p>
+    <br>
+    <p class="text-justify">
+      Sumber daya yang dimaksud meliputi pengaksesan disk, waktu CPU mengerjakan query, dan untuk sistem basis 
+      data paralel atau terdistribusi. Adapun pada sistem basis data yang besar, dapat pula memberikan kontribusi 
+      biaya query yang dominan Optimizer query akan membuat informasi statistik yang tersimpan dalam katalog DBMS 
+      untuk memperkirakan besarnya biaya dari sebuah rencana query. Adapun informasi yang tersimpan tersebut 
+      meliputi :
+      <ul>
+        <li>
+          Banyaknya baris data (record) dalam sebuah tabel
+        </li>
+        <li>
+          Banyaknya blok baris berisi baris data dalam tabel
+        </li>
+        <li>
+          Ukuran setiap baris data dari tabel (satuan byte), dan
+        </li>
+        <li>
+          Banyaknya nilai unik dalam tabel untuk suatu atribut.
+        </li>
+      </ul>
+    </p>
+    <h4 class="bg-primary text-white text-center" >Bagaimana Sebuah Sistem DB Mengevaluasi Sebuah Ekspresi</h4>
+    <p class="test-justify">
+      Dalam mengevaluasi sebuah ekspresi dan juga multiple ekspresi, kami mempertimbangkan pendekatan 
+      materialization dan pendekatan pipelining. Kita akan melihat bahwa pendekatan ini berbeda.
+    </p>
+    <br>
+    <p class="test-justify">
+      Materialization menampung hasil operasi menggunakan tabel temporer (dimaterialkan) yang kemudian digunakan 
+      untuk evaluasi level berikutnya. Materialization tidak memiliki persyaratan yang lebih tinggi untuk buffer 
+      memori untuk evaluasi kueri. Biaya keseluruhan sudah termasuk biaya operasional ditambah biaya pembacaan dan 
+      penulisan hasil pada penyimpanan sementara. Materialization juga tidak ada trashing, maka performancenya masih 
+      lebih baik. Namun, kurang efisien karena membutuhkan waktu untuk menghasilkan hasil kueri.
+    </p>
+    <p class="text-jusrify">
+      Pipeline Mengganti tabel temporer dengan suatu pipeline operasi (berupa buffer). Penggunaan pipeline akan 
+      menghilangkan biaya pembacaan dan penulisan tabel-tabel temporer. Pipelining merupakan cara evaluasi kueri 
+      yang lebih efisien karena menghasilkan hasil dengan cepat. Ini mengoptimalkan biaya evaluasi kueri, karena 
+      belum termasuk biaya baca tulis maka penyimpanan sementara. Namun, kinerjanya menjadi buruk jika terjadi 
+      trashing.
+    </p>
+    <br><br>
+    <!-- <h4 class="bg-primary text-white text-center" >Bagaimana Sebuah Sistem DB Mengevaluasi Multiple Ekspresi</h4>
+    <p class="text-justify">
+
+    </p> -->
+  </div>
+  
+
+  <footer class="bg-secondary text-center text-white">D121181003 || Muhammad Alwi Kayyum</footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
