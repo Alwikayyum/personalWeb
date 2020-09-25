@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluation Plan</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html"><img src="AlwikayyumWeb.png" width="100px" height="auto"></a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Data Diri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Riwayat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Keterampilan</a>
+        </li>
+       
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Article
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="tboTugasSatu.html">Teori Bahasa dan Otomata</a>
+        <a class="dropdown-item" href="tboTugasDua.html">Notasi Big O</a>
+        <a class="dropdown-item" href="bdTugasEmpat.html">Prinsip Kerja Pemrosesan Query</a>
+        <a href="bdTugasLima.html" class="dropdown-item">Evaluation Plan</a>
+      </div>
+      </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <br><br>
+  <div class="jumbotron">
+    <h1>Basis Data</h1>
+    <p>Evaluation Plan</p>
+  </div>
+  <div class="container">
+      <p class="text-justify">
+        Apa itu sebenarnya evaluation plan ? Evaluation plan ini menetapkan detail evaluasi seperti apa saja 
+        yang akan dievaluasi dan bagaimana nantinya cara mengevaluasinya. Nah, evaluation plan di query pada 
+        DBMS ini berguna agar optimizer dapat memutuskan nantinya evaluasi mana yang akan dipilih.
+      </p>
+      <h4 class="bg-primary text-white text-center" >Evaluation Plan Pada MySQL</h4>
+      <p class="text-justify">
+        Tiap DBMS memiliki cara yang berbeda untuk menampilkan Evaluation Plan. Saya akan mengambil 
+        contoh evaluation plan di MySQL. Berikut keterangannya : sebagai contoh saya menggunakan database <b>basisdata</b>
+        dengan 4 table yaitu buku, perpus, user dan waktu
+        <ul>
+          <li>Siapkan Databasenya terlebih dahulu, lengkap dengan table dan isinya</li>
+          <li>Buat sebuah perintah query yang akan dilakukan pada table tersebut</li>
+          <li>Tambahkan <b>EXPLAIN</b> sebelum perintah query.</li>
+        </ul>
+      </p>
+      <br>
+      <p class="text-justify">
+        Dibawah ini adalah contoh penggunaan EXPLAIN untuk untuk Evaluation Plan di MySQL. Sebelumnya saya telah membuat
+        database dengan nama <b>basisdata</b> dengan 4 table, namun hanya 2 yang akan digunakan dalam contoh kali ini.
+        <img class="mx-auto d-block" src="explainMysql.PNG" alt="explainMysql">
+        Hasilnya tertera pada table diatas. 
+        <br>
+        <ul>
+          <li>id ditampilkan nomor urut dari query SELECT yang dimiliki baris ini. Karena query di atas ini 
+            tidak berisi subkueri ataupun gabungan, maka id untuk kedua baris adalah 1.</li>
+          <li>select_type berisi tentang apakah query tersebut berisi subkueri atau gabungan. Hasil explain 
+            gambar itu muncul SIMPLE yang berarti tidak bergabung pada subkueri atau gabungan.</li>
+          <li>table menjelaskan nama tabel yang digunakan dalam query.</li>
+          <li>type menjelaskan bagaimana tabel itu diakses/bergabung. type ALL berarti memindai seluruh tabel, 
+            selanjutnya eq_ref merupakan tipe gabungan (JOIN type)</li>
+          <li>possible_keys hanya menjelaskan jika tabel ini memiliki indeks berguna untuk mencari baris, indeks 
+            dapat dipilih. Untuk hasil gambar di atas, dijelaskan bahwa keduanya memiliki indeks PRIMARY.</li>
+          <li>key menjelaskan indeks sebenarnya yang digunakan MySQL untuk mencari</li>
+          <li>key_len menunjukkan panjang kunci yang digunakan MySQL, di gambar atas menjelaskan bahwa bagian 
+            PRIMARY memiliki 4 byte. Sebagai menunjukkan indeks id berarti INT = 4 bytes.</li>
+          <li>ref merupakan kolom yang dibandingkan dengan indeks yang diberi nama di kolom kunci</li>
+          <li>rows menunjukkan berapa data yang diambil dalam tabel, tergantung dengan query apa yang dipakai</li>
+          <li>Extra menunjukkan informasi tambahan tentang query processing, namun dalam gambar diatas hanya menunjukkan 
+            NULL, yang berarti tidak ada.</li>
+        </ul>
+      </p>
+      <br>
+  </div>
+
+  
+
+  <footer class="bg-secondary text-center text-white">D121181003 || Muhammad Alwi Kayyum</footer>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
