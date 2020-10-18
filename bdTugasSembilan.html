@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Basis Data</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html"><img src="AlwikayyumWeb.png" width="100px" height="auto"></a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Data Diri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Riwayat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Keterampilan</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Article
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="tboTugasSatu.html">Teori Bahasa dan Otomata</a>
+            <a class="dropdown-item" href="tboTugasDua.html">Notasi Big O</a>
+            <a class="dropdown-item" href="bdTugasEmpat.html">Prinsip Kerja Pemrosesan Query</a>
+            <a href="bdTugasLima.html" class="dropdown-item">Evaluation Plan</a>
+            <a class="dropdown-item" href="bdTugasSembilan.html">Konsep Transaksi</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <br><br>
+  <div class="jumbotron">
+    <h1>Basis Data</h1>
+    <p>Konsep Transaksi</p>
+  </div>
+  <div class="container">
+    <h4 class="bg-primary text-white text-center">Transaksi</h4>
+    <p class="text-justify">
+      Transaksi adalah unit program execution yang mengakses dan memungkinkan untuk memperbarui berbagai item data.
+      Transaksi juga merupakan salah satu fitur DBMS relasional yang cukup penting bahkan menjadi keunggulan dari
+      DBMS relasional secara umum.
+      <br>
+      Dalam Transaksi, terkadang terdapat beberapa kendala yang sering dihadapi. Beberapa dari kendala tersebut seperti
+      terjadi kegagalan hardware dan sistem crash ataupun Eksekusi bersamaan dari beberapa transaksi.
+    </p>
+    <br><br>
+    <h4 class="bg-primary text-white text-center">Bagaimana menjaga integritas data dalam transaksi ?</h4>
+    <p class="text-justify">
+      Untuk memastikan integritas data transaksi, sistem database harus memastikan hal hal berikut
+    <ul>
+      <li>
+        <h5>Atomicity</h5>
+        Memastikan bahwa semua transaksi harus terselesaikan, jika terjadi kesalahan maka seluruh transaksi juga
+        dibatalkan.
+      </li>
+      <li>
+        <h5>Consistency</h5>
+        Memastikan data sebelum ditransaksi dan setelah di transaksi itu tetap konsisten
+      </li>
+      <li>
+        <h5>Isolation</h5>
+        Jika ada beberapa transaksi yang terjadi, maka transaksi yang pertama akan di eksekusi terlebih dahulu sampai
+        selesai. Kemudian diikuti oleh transaksi yang lainnya. Isolasi dapat dilakukan dengan menjalankan transaksi
+        secara serial.
+      </li>
+      <li>
+        <h5>Durability</h5>
+        Memastikan data tersebut sudah disimpan ke sistem dan secara permanen agar jika terjadi kesalahan/kegagalan
+        data masih tersedia di database.
+      </li>
+    </ul>
+    </p>
+    <h4 class="bg-primary text-white text-center">Contoh Kasus</h4>
+    <p class="text-justify">
+      Misalkan, Dari sebuah toko yang menjual berbagai macam buku. Dalam hal ini, buku DB terjual 10 buah dalam sebulan
+      dan tersisa 7 buku.
+    <h5 class="bg-primary text-white text-center">Step step dalam contoh kasus ini</h5>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td>
+            1. read(jmlhBukuDBTerjual)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2. jmlhBukuDBTerjual = jmlhBukuTerjual + 1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3. write(jmlhBukuDBTerjual)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            4. read(jmlhBukuDBTersisa)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            5. jmlhBukuDBTersisa = jmlhBukuDBTersisa - 1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            6. write(jmlhBukuDBTersisa)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h5 class="">Atomicity</h5>
+      <p class="text-justify">
+        Jika terdapat salah satu step yang gagal (misalkan step 3) saat melakukan transaksi, maka seluruh perubaha
+        akan dibatalkan dan dikembalikan pada kondisi awal
+      </p>
+    <h5 class="">Consistency</h5>
+      <p class="text-justify">
+        Syarat dalam transaksi ini harus konsisten. Sebelum dan sesudah transaksi harus mempunyai hasil jumlah 
+        yang sama. Sebelum transaksi, terlihat bahwa jumlah buku DB terjual adalah 10 dan jumlah sisa buku DB 
+        adalah 7, sehingga 10 + 7 = 17. Maka, jumlah buku DB adalah 17. 
+        <br>
+        Setelah transaksi, jumlah buku DB tejual adalah (10 + 1 = 11) dan jumlah buku DB tersisa adalah (7 - 1 = 6)
+        sehingga 11 + 6 = 17. Maka, Jumlah buku DB adalah 17
+        <br>
+        Bisa disimpulkan bahwa, sebelum dan sesudah transaksi, jumlah banyaknya tepung tetap sama, maka bisa 
+        dikatakan konsisten.
+      </p>
+    <h5>
+      Isolation
+    </h5>
+      <p>
+        Transaksi pertama yang harus dilakukan jika ada transaksi lainnya yang terjadi, setelah transaksi pertama 
+        maka transaksi selanjutnya yang dieksekusi. Agar perubahan datanya tetap dalam konsisten.
+      </p>
+    <h5>
+      Durability
+    </h5>
+      <p>
+        Transaksi yang terjadi harus disimpan dalam database untuk menghindari kehilangan data jika sistemnya bermasalah.
+      </p>
+    </p>
+    <br><br>
+
+
+
+  </div>
+
+  <footer class="bg-secondary text-center text-white">D121181003 || Muhammad Alwi Kayyum</footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
