@@ -58,7 +58,51 @@
         <p>Prosedur konversi NFA menjadi DFA</p>
     </div>
     <div class="container">
+      <h4 class="bg-primary text-white text-center">Prosedur konversi NFA menjadi DFA</h4>
+      <p class="justify">
+        Ada beberapa kelas dalam teori otomatisasi atau otomatisasi, termasuk Deterministic Finite Automata (DFA) dan Nondeterministic Finite Automata (NFA).  
+        Kedua kelas ini adalah fungsi lompatan otomatis atau pistol. Selama transisi, DFA n tidak dapat menggunakan string kosong dan dapat diartikan sebagai satu mesin. 
+        Jika garis berakhir pada tingkat yang tidak dapat diterima, DFA menolak. Mesin DFA dapat dibangun dengan setiap input dan output. DFA hanya memiliki satu transisi 
+        status untuk setiap karakter alfabet, dan hanya ada satu status akhir untuk karakter itu, yaitu, untuk setiap karakter yang dibaca, ada satu status yang sesuai 
+        dalam DFA. Keanggotaan DFA lebih mudah untuk diverifikasi tetapi lebih sulit untuk dibangun. Pelacakan balik diizinkan dalam DFA dan membutuhkan lebih banyak ruang
+        daripada NFA. Mundur tidak selalu diizinkan di NFA. Dalam beberapa kasus itu mungkin, dan dalam kasus lain tidak. Membangun NFA lebih mudah dan juga membutuhkan 
+        lebih sedikit ruang, tetapi tidak mungkin untuk membangun mesin NFA untuk setiap entri dan keluar.
+      </p>
+      <br>
 
+      <h4 class="bg-primary text-white text-center">Langkah-Langkah Untuk Mengubah NFA ke DFA</h4>
+      <p class="justify">
+        Berikut ini adalah prosedur merubah NFA (Non-Deterministic Finite Automata) menjadi DFA (Deterministic Finite Automata) :
+        <ul>
+          <li>
+            Buat semua state yang merupakan subset dari state semula. Jumlah state menjadi 2Q.
+          </li>
+          <li>
+            Telusuri transisi state-state yang baru terbentuk, dari diagram transisi.
+          </li>
+          <li>
+            Tentukan state awal : {q0}
+          </li>
+          <li>
+            Tentukan state akhir adalah state yang elemennya mengandung state akhir.
+          </li>
+          <li>
+            Reduksi state yang tak tercapai oleh state awal.
+          </li>
+        </ul>
+      </p>
+
+      <h4 class="bg-primary text-white text-center">Langkah-Langkah Untuk Mengubah NFA ke DFA</h4>
+      <div>
+      <div class="col-md-6">
+        <img src="step0_.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <p class="justify">
+          Gambar disamping menunjukkan soal NFA (Non-Deterministic Finite Automata) yang akan diubah menjadi DFA (Deterministic Finite Automata)
+        </p>
+      </div>
+      </div>
     </div>
     <footer class="bg-secondary text-center text-white">D121181003 || Muhammad Alwi Kayyum</footer>
 </body>
