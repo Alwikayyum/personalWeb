@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notasi Big O</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html"><img src="AlwikayyumWeb.png" width="100px" height="auto"></a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Data Diri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Riwayat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Keterampilan</a>
+        </li>
+       
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Article
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="tboSatu.html">Teori Bahasa dan Otomata</a>
+        <a class="dropdown-item" href="tboDua.html">Notasi Big O</a>
+        <a class="dropdown-item" href="tboTiga.html">Prosedur konversi NFA menjadi DFA</a>
+        <a class="dropdown-item" href="tboEmpat.html">Regular Expression</a>
+        <a class="dropdown-item" href="tboLima.html">Context Free Grammars</a>
+        <a class="dropdown-item" href="tboEnam.html">Hierarki Chomsky</a>
+        <a class="dropdown-item" href="tboTujuh.html">All About "Mesin Turing"</a>
+        <a class="dropdown-item" href="bdEmpat.html">Prinsip Kerja Pemrosesan Query</a>
+        <a href="bdTugasLima.html" class="dropdown-item">Evaluation Plan</a>
+        <a class="dropdown-item" href="bdSembilan.html">Konsep Transaksi</a>
+        <a class="dropdown-item" href="knn.html">Data Mining</a>
+      </div>
+      </li>
+      </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+  <div class="jumbotron ">
+    <h1>Data Mining</h1>
+    <p>Algoritma K-Nearest Neighbor</p>
+</div>
+
+
+<div class="container">
+  <div class="">
+      <img src="knn.png" alt="KNN" class="img-fluid mx-auto d-block">
+      <br>
+      <br>
+    <h4 class="bg-primary text-white text-center" >Apa itu K-Nearest Neighbor</h4>
+    <p class="text-justify">
+        Algoritma k-Nearest Neighbor adalah algoritma supervised learning dimana hasil dari instance yang baru diklasifikasikan berdasarkan mayoritas dari kategori k-tetangga terdekat. Algoritma k-Nearest Neighbor menggunakan Neighborhood Classification sebagai nilai prediksi dari nilai instance yang baru.
+    </p>
+    <br>
+    <p class="text-justify">
+        Tujuan dari algoritma ini adalah untuk mengklasifikasikan obyek baru berdasarkan atribut dan sample-sample dari training data.  
+    </p>
+  </div>
+
+  <br>
+  <br>
+  <div class="">
+    <h4 class="bg-primary text-white text text-center">Kelebihan Dan Kekurangan K-Nearest Neighbor</h4>
+    <p class="text-justify font-weight-bold">
+      Kelebihan
+    </p>
+    <p class="text-justify">
+        Kelebihan → KNN memiliki beberapa kelebihan yaitu bahwa dia tangguh terhadap training data yang noisy dan efektif apabila data latih nya besar.
+    </p>
+    <p class="text-justify font-weight-bold">
+        Kekurangan
+    </p>
+    <ul>
+      <li>
+        KNN perlu menentukan nilai dari parameter K (jumlah dari tetangga terdekat)
+      </li>
+      <li>
+        Pembelajaran berdasarkan jarak tidak jelas mengenai jenis jarak apa yang harus digunakan dan atribut mana yang harus digunakan untuk mendapatkan hasil yang terbaik
+      </li>
+      <li>
+        Biaya komputasi cukup tinggi karena diperlukan perhitungan jarak dari tiap sample uji pada keseluruhan sample latih.
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
+
+  <div class="">
+    <h4 class="bg-primary text-white text-center">Cara Kerja</h4>
+    <p class="text-justify">
+      Contoh Kasus
+    </p>
+    <p class="text-justify">
+        Misalnya ada sebuah rumah yang berada tepat di tengah perbatasan antara Kota Bandung dan Kabupaten Bandung, sehingga pemerintah kesulitan untuk menentukan apakah rumah tersebut termasuk kedalam wilayah Kota Bandung atau Kabupaten Bandung.
+
+        <br><br>
+
+        Kita bisa menentukannya dengan menggunakan Algoritma k-NN, yaitu dengan melibatkan jarak antara rumah tersebut dengan rumah-rumah yang ada disekitarnya (tetangganya).
+
+        <br><br>
+
+        <b>Pertama</b> kita harus menentukan jumlah tetangga yg akan kita perhitungkan (k), misalnya kita tentukan 3 tetangga terdekat (k = 3).
+        <br><br>
+        <b>Kedua</b> hitung jarak setiap tetangga terhadap rumah tersebut, lalu urutkan hasilnya berdasarkan jarak, mulai dari yang terkecil ke yang terbesar.
+        <br><br>
+        <b>Ketiga</b> ambil 3 (k) tetangga yg paling dekat, lalu kita lihat masing-masing dari tetangga tersebut apakah termasuk kedalam wilayah Kota atau Kabupaten. Ada 2 kemungkinan:
+      <ul>
+        <li>
+          <p class="text-jusrify">Bila dari 3 tetangga tersebut terdapat ada 2 rumah yg termasuk kedalam wilayah Kota Bandung, maka rumah tersebut termasuk kedalam wilayah Kota Bandung.</p>
+        </li>
+        <li>
+          <p class="text-jusrify">Sebaliknya, bila dari 3 tetangga tersebut terdapat 2 rumah yg termasuk kedalam wilayah Kabupaten Bandung, maka rumah tersebut termasuk kedalam wilayah Kabupaten Bandung.</p>
+        </li>
+      </ul>
+      <p class="text-center">
+          <br>
+        <b>Dalam menentukan nilai k</b>, bila jumlah klasifikasi kita genap maka sebaiknya kita gunakan nilai k ganjil, <br>
+        dan begitu pula sebaliknya bila jumlah klasifikasi kita ganjil maka sebaiknya gunakan nilai k genap,  <br>
+        karena jika tidak begitu, ada kemungkinan kita tidak akan mendapatkan jawaban. <br><br>
+      </p>
+    </p>
+    </div>
+
+    <div>
+        <h4 class="bg-primary text-white text-center">Kesimpulan</h4>
+        <p class="text-justify"> 
+            Algoritma kNN (k-Nearest Neighbor) ini adalah algoritma klasifikasi berdasarkan tetangga terdekat. Contoh diatas hanyalah contoh yang sangat sederhana dalam menerapkan algoritma ini.
+            <br><br>
+
+        </p>
+    </div>
+  </div>
+</div>
+  
+  <br><br>
+<footer class="bg-secondary text-center text-white">D121181003 || Muhammad Alwi Kayyum</footer>
+
+  
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
